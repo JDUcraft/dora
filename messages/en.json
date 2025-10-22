@@ -112,7 +112,90 @@
     "cluster": "Cluster {id}",
     "trajectory": "Improvement trajectory",
     "nextStep": "Next step: <strong>Cluster {to}</strong> - Focus on the recommendations below to progress towards this improvement trajectory.",
-    "recommendations": "Recommendations"
+    "recommendations": "Recommendations",
+    "clusterRadar": "Cluster radar",
+    "clusterDetails": "Cluster details",
+    "performanceTitle": "📊 Performance",
+    "wellbeingTitle": "💚 Well-being",
+    "team": "Team:",
+    "product": "Product:",
+    "delivery": "Delivery:",
+    "burnout": "Burnout:",
+    "friction": "Friction:",
+    "stability": "Stability:"
+  },
+  "trajectories": {
+    "1": "Stabilize",
+    "2": "Modernize",
+    "3": "Optimize",
+    "4": "Accelerate",
+    "5": "Accelerate",
+    "6": "Excel"
+  },
+  "recommendations": {
+    "1": {
+      "title": "Urgent priorities",
+      "items": [
+        "Stabilize systems (critical infrastructure)",
+        "Reduce reactive workload immediately",
+        "Implement support and resources",
+        "Initiate progressive continuous improvement"
+      ]
+    },
+    "2": {
+      "title": "Modernization plan",
+      "items": [
+        "Reduce dependency on legacy systems",
+        "Automate repetitive processes",
+        "Implement progressive extraction strategy",
+        "Train team on new technologies"
+      ]
+    },
+    "3": {
+      "title": "Process optimization",
+      "items": [
+        "Analyze and simplify workflows",
+        "Reduce non-critical approvals",
+        "Automate manual tasks",
+        "Implement observability"
+      ]
+    },
+    "4": {
+      "title": "Increase cadence",
+      "items": [
+        "Accelerate deployment lead time",
+        "Improve operational stability",
+        "Implement continuous deployment",
+        "Reduce change variability"
+      ]
+    },
+    "5": {
+      "title": "Accelerate without compromise",
+      "items": [
+        "Gradually increase deployment frequency",
+        "Invest in automation",
+        "Strengthen customer feedback",
+        "Share best practices"
+      ]
+    },
+    "6": {
+      "title": "Consolidate and share",
+      "items": [
+        "Document and share best practices",
+        "Train other teams",
+        "Seek micro-improvements",
+        "Maintain momentum"
+      ]
+    },
+    "7": {
+      "title": "Continuous excellence",
+      "items": [
+        "Maintain quality culture",
+        "Share expertise with organization",
+        "Explore future innovations",
+        "Measure continuously"
+      ]
+    }
   },
   "clusters": {
     "1": {

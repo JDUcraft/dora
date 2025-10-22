@@ -112,7 +112,90 @@
     "cluster": "Cluster {id}",
     "trajectory": "Trajectoire d'amélioration",
     "nextStep": "Prochaine étape : <strong>Cluster {to}</strong> - Concentrez-vous sur les recommandations ci-dessous pour progresser vers cette trajectoire d'amélioration.",
-    "recommendations": "Recommandations"
+    "recommendations": "Recommandations",
+    "clusterRadar": "Radar du cluster",
+    "clusterDetails": "Détails du cluster",
+    "performanceTitle": "📊 Performance",
+    "wellbeingTitle": "💚 Bien-être",
+    "team": "Équipe:",
+    "product": "Produit:",
+    "delivery": "Delivery:",
+    "burnout": "Burnout:",
+    "friction": "Friction:",
+    "stability": "Stabilité:"
+  },
+  "trajectories": {
+    "1": "Stabiliser",
+    "2": "Moderniser",
+    "3": "Optimiser",
+    "4": "Accélérer",
+    "5": "Accélérer",
+    "6": "Exceller"
+  },
+  "recommendations": {
+    "1": {
+      "title": "Priorités urgentes",
+      "items": [
+        "Stabiliser les systèmes (infrastructure critique)",
+        "Réduire la charge réactive immédiatement",
+        "Mettre en place du support et des ressources",
+        "Initier une amélioration continue progressive"
+      ]
+    },
+    "2": {
+      "title": "Plan de modernisation",
+      "items": [
+        "Réduire la dépendance aux systèmes hérités",
+        "Automatiser les processus répétitifs",
+        "Implémenter une stratégie d'extraction progressive",
+        "Former l'équipe aux nouvelles technologies"
+      ]
+    },
+    "3": {
+      "title": "Optimisation des processus",
+      "items": [
+        "Analyser et simplifier les workflows",
+        "Réduire les approbations non-critiques",
+        "Automatiser les tâches manuelles",
+        "Mettre en place l'observabilité"
+      ]
+    },
+    "4": {
+      "title": "Augmenter la cadence",
+      "items": [
+        "Accélérer le lead time des déploiements",
+        "Améliorer la stabilité opérationnelle",
+        "Mettre en place le continuous deployment",
+        "Réduire la variabilité des changements"
+      ]
+    },
+    "5": {
+      "title": "Accélérer sans compromettre",
+      "items": [
+        "Augmenter la fréquence de déploiement graduellement",
+        "Investir dans l'automatisation",
+        "Renforcer le feedback client",
+        "Partager les bonnes pratiques"
+      ]
+    },
+    "6": {
+      "title": "Consolider et partager",
+      "items": [
+        "Documenter et partager les meilleures pratiques",
+        "Former d'autres équipes",
+        "Chercher des micro-améliorations",
+        "Maintenir le momentum"
+      ]
+    },
+    "7": {
+      "title": "Excellence continue",
+      "items": [
+        "Maintenir la culture de qualité",
+        "Partager l'expertise avec l'organisation",
+        "Explorer les innovations futures",
+        "Mesurer continuellement"
+      ]
+    }
   },
   "clusters": {
     "1": {

@@ -45,13 +45,13 @@ export default function Home() {
   if (submitted) {
     const result = calculateClusterMatch(answers);
 
-    const trajectories: Record<number, { to: number; label: string; color: string }> = {
-      1: { to: 2, label: "Stabiliser", color: "#f59e0b" },
-      2: { to: 3, label: "Moderniser", color: "#3b82f6" },
-      3: { to: 5, label: "Optimiser", color: "#8b5cf6" },
-      4: { to: 6, label: "Accélérer", color: "#06b6d4" },
-      5: { to: 6, label: "Accélérer", color: "#10b981" },
-      6: { to: 7, label: "Exceller", color: "#059669" },
+    const trajectories: Record<number, { to: number; color: string }> = {
+      1: { to: 2, color: "#f59e0b" },
+      2: { to: 3, color: "#3b82f6" },
+      3: { to: 5, color: "#8b5cf6" },
+      4: { to: 6, color: "#06b6d4" },
+      5: { to: 6, color: "#10b981" },
+      6: { to: 7, color: "#059669" },
     };
 
     const nextTrajectory = trajectories[result.cluster.id];
@@ -85,11 +85,11 @@ export default function Home() {
 
           <div className="max-w-7xl mx-auto px-4 mb-8 animate-fade-in">
             <div className="w-full bg-white rounded-lg shadow-lg p-4 md:p-6">
-              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-center">Votre Diagnostic DORA</h2>
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-center">{t('results.diagnostic')}</h2>
               
               <div className="grid md:grid-cols-2 gap-6 md:gap-8">
                 <div className="min-w-0">
-                  <h3 className="text-base md:text-lg font-bold text-slate-800 mb-3 md:mb-4">Votre cluster</h3>
+                  <h3 className="text-base md:text-lg font-bold text-slate-800 mb-3 md:mb-4">{t('results.yourCluster')}</h3>
                 <div
                   className="rounded-lg md:rounded-xl p-3 md:p-6 text-white mb-4 md:mb-6 shadow-lg"
                   style={{ 
@@ -97,15 +97,15 @@ export default function Home() {
                   }}
                 >
                   <h3 className="text-xl md:text-3xl font-bold mb-2">
-                    Cluster {result.cluster.id}
+                    {t('results.cluster', { id: result.cluster.id })}
                   </h3>
-                  <p className="text-base md:text-xl font-semibold mb-2 md:mb-4">{result.cluster.name}</p>
-                  <p className="text-sm md:text-lg opacity-95 leading-snug">{result.cluster.description}</p>
+                  <p className="text-base md:text-xl font-semibold mb-2 md:mb-4">{t(`clusters.${result.cluster.id}.name`)}</p>
+                  <p className="text-sm md:text-lg opacity-95 leading-snug">{t(`clusters.${result.cluster.id}.description`)}</p>
                 </div>
 
                 {nextTrajectory && (
                   <div className="mb-4 md:mb-6">
-                    <h3 className="text-base md:text-lg font-semibold text-slate-800 mb-2 md:mb-3">Trajectoire d'amélioration</h3>
+                    <h3 className="text-base md:text-lg font-semibold text-slate-800 mb-2 md:mb-3">{t('results.trajectory')}</h3>
                     <div 
                       className="p-3 md:p-5 rounded-lg border-l-4"
                       style={{ 
@@ -148,7 +148,7 @@ export default function Home() {
                             className="font-bold text-sm px-2 py-1 rounded"
                             style={{ color: nextTrajectory.color }}
                           >
-                            {nextTrajectory.label}
+                            {t(`trajectories.${result.cluster.id}`)}
                           </span>
                         </div>
                         <div
@@ -160,101 +160,44 @@ export default function Home() {
                           C{nextTrajectory.to}
                         </div>
                       </div>
-                      <p className="text-xs md:text-sm text-slate-700 leading-snug">
-                        Prochaine étape : <strong>Cluster {nextTrajectory.to}</strong> - Concentrez-vous sur les recommandations ci-dessous pour progresser vers cette trajectoire d'amélioration.
-                      </p>
+                      <p className="text-xs md:text-sm text-slate-700 leading-snug" dangerouslySetInnerHTML={{ __html: t('results.nextStep', { to: nextTrajectory.to }) }} />
                     </div>
                   </div>
                 )}
 
                 <div className="min-w-0">
-                  <h3 className="text-base md:text-lg font-semibold text-slate-800 mb-2 md:mb-3">Recommandations</h3>
-                  {result.cluster.id === 1 && (
-                    <div className="bg-gradient-to-r from-red-50 to-red-100 border-l-4 border-red-500 p-5 rounded-lg">
-                      <h4 className="font-semibold text-red-900 text-sm mb-2">Priorités urgentes</h4>
-                      <ul className="mt-2 text-red-800 space-y-2 text-sm">
-                        <li>• Stabiliser les systèmes (infrastructure critique)</li>
-                        <li>• Réduire la charge réactive immédiatement</li>
-                        <li>• Mettre en place du support et des ressources</li>
-                        <li>• Initier une amélioration continue progressive</li>
-                      </ul>
-                    </div>
-                  )}
-                  {result.cluster.id === 2 && (
-                    <div className="bg-gradient-to-r from-orange-50 to-orange-100 border-l-4 border-orange-500 p-5 rounded-lg">
-                      <h4 className="font-semibold text-orange-900 text-sm mb-2">Plan de modernisation</h4>
-                      <ul className="mt-2 text-orange-800 space-y-2 text-sm">
-                        <li>• Réduire la dépendance aux systèmes hérités</li>
-                        <li>• Automatiser les processus répétitifs</li>
-                        <li>• Implémenter une stratégie d'extraction progressive</li>
-                        <li>• Former l'équipe aux nouvelles technologies</li>
-                      </ul>
-                    </div>
-                  )}
-                  {result.cluster.id === 3 && (
-                    <div className="bg-gradient-to-r from-yellow-50 to-yellow-100 border-l-4 border-yellow-500 p-5 rounded-lg">
-                      <h4 className="font-semibold text-yellow-900 text-sm mb-2">Optimisation des processus</h4>
-                      <ul className="mt-2 text-yellow-800 space-y-2 text-sm">
-                        <li>• Analyser et simplifier les workflows</li>
-                        <li>• Réduire les approbations non-critiques</li>
-                        <li>• Automatiser les tâches manuelles</li>
-                        <li>• Mettre en place l'observabilité</li>
-                      </ul>
-                    </div>
-                  )}
-                  {result.cluster.id === 4 && (
-                    <div className="bg-gradient-to-r from-purple-50 to-purple-100 border-l-4 border-purple-500 p-5 rounded-lg">
-                      <h4 className="font-semibold text-purple-900 text-sm mb-2">Augmenter la cadence</h4>
-                      <ul className="mt-2 text-purple-800 space-y-2 text-sm">
-                        <li>• Accélérer le lead time des déploiements</li>
-                        <li>• Améliorer la stabilité opérationnelle</li>
-                        <li>• Mettre en place le continuous deployment</li>
-                        <li>• Réduire la variabilité des changements</li>
-                      </ul>
-                    </div>
-                  )}
-                  {result.cluster.id === 5 && (
-                    <div className="bg-gradient-to-r from-green-50 to-green-100 border-l-4 border-green-500 p-5 rounded-lg">
-                      <h4 className="font-semibold text-green-900 text-sm mb-2">Accélérer sans compromettre</h4>
-                      <ul className="mt-2 text-green-800 space-y-2 text-sm">
-                        <li>• Augmenter la fréquence de déploiement graduellement</li>
-                        <li>• Investir dans l'automatisation</li>
-                        <li>• Renforcer le feedback client</li>
-                        <li>• Partager les bonnes pratiques</li>
-                      </ul>
-                    </div>
-                  )}
-                  {result.cluster.id === 6 && (
-                    <div className="bg-gradient-to-r from-blue-50 to-blue-100 border-l-4 border-blue-500 p-5 rounded-lg">
-                      <h4 className="font-semibold text-blue-900 text-sm mb-2">Consolider et partager</h4>
-                      <ul className="mt-2 text-blue-800 space-y-2 text-sm">
-                        <li>• Documenter et partager les meilleures pratiques</li>
-                        <li>• Former d'autres équipes</li>
-                        <li>• Chercher des micro-améliorations</li>
-                        <li>• Maintenir le momentum</li>
-                      </ul>
-                    </div>
-                  )}
-                  {result.cluster.id === 7 && (
-                    <div className="bg-gradient-to-r from-emerald-50 to-emerald-100 border-l-4 border-emerald-500 p-5 rounded-lg">
-                      <h4 className="font-semibold text-emerald-900 text-sm mb-2">Excellence continue</h4>
-                      <ul className="mt-2 text-emerald-800 space-y-2 text-sm">
-                        <li>• Maintenir la culture de qualité</li>
-                        <li>• Partager l'expertise avec l'organisation</li>
-                        <li>• Explorer les innovations futures</li>
-                        <li>• Mesurer continuellement</li>
-                      </ul>
-                    </div>
-                  )}
+                  <h3 className="text-base md:text-lg font-semibold text-slate-800 mb-2 md:mb-3">{t('results.recommendations')}</h3>
+                  {(() => {
+                    const colorMap: Record<number, { from: string; to: string; border: string; title: string; text: string }> = {
+                      1: { from: 'from-red-50', to: 'to-red-100', border: 'border-red-500', title: 'text-red-900', text: 'text-red-800' },
+                      2: { from: 'from-orange-50', to: 'to-orange-100', border: 'border-orange-500', title: 'text-orange-900', text: 'text-orange-800' },
+                      3: { from: 'from-yellow-50', to: 'to-yellow-100', border: 'border-yellow-500', title: 'text-yellow-900', text: 'text-yellow-800' },
+                      4: { from: 'from-purple-50', to: 'to-purple-100', border: 'border-purple-500', title: 'text-purple-900', text: 'text-purple-800' },
+                      5: { from: 'from-green-50', to: 'to-green-100', border: 'border-green-500', title: 'text-green-900', text: 'text-green-800' },
+                      6: { from: 'from-blue-50', to: 'to-blue-100', border: 'border-blue-500', title: 'text-blue-900', text: 'text-blue-800' },
+                      7: { from: 'from-emerald-50', to: 'to-emerald-100', border: 'border-emerald-500', title: 'text-emerald-900', text: 'text-emerald-800' },
+                    };
+                    const colors = colorMap[result.cluster.id];
+                    return (
+                      <div className={`bg-gradient-to-r ${colors.from} ${colors.to} border-l-4 ${colors.border} p-5 rounded-lg`}>
+                        <h4 className={`font-semibold ${colors.title} text-sm mb-2`}>{t(`recommendations.${result.cluster.id}.title`)}</h4>
+                        <ul className={`mt-2 ${colors.text} space-y-2 text-sm`}>
+                          {(t(`recommendations.${result.cluster.id}.items`) as unknown as string[]).map((item, idx) => (
+                            <li key={idx}>• {item}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    );
+                  })()}
                 </div>
               </div>
 
               <div>
-                <h3 className="text-lg font-bold text-slate-800 mb-4">Radar du cluster</h3>
+                <h3 className="text-lg font-bold text-slate-800 mb-4">{t('results.clusterRadar')}</h3>
                 <RadarChart cluster={result.cluster} />
 
                 <div className="mt-8 pt-6 border-t border-slate-200">
-                  <h3 className="text-lg font-semibold text-slate-800 mb-4">Détails du cluster</h3>
+                  <h3 className="text-lg font-semibold text-slate-800 mb-4">{t('results.clusterDetails')}</h3>
                   <div
                     className="rounded-lg border-2 shadow-md"
                     style={{ borderColor: result.cluster.color }}
@@ -266,19 +209,19 @@ export default function Home() {
                           style={{ backgroundColor: `${result.cluster.color}15` }}
                         >
                           <h4 className="font-semibold text-xs uppercase tracking-wide mb-3" style={{ color: result.cluster.color }}>
-                            📊 Performance
+                            {t('results.performanceTitle')}
                           </h4>
                           <ul className="space-y-2 text-xs">
                             <li className="flex justify-between">
-                              <span className="text-slate-600">Équipe:</span>
+                              <span className="text-slate-600">{t('results.team')}</span>
                               <strong className="text-slate-800">{result.cluster.characteristics.teamPerformance}</strong>
                             </li>
                             <li className="flex justify-between">
-                              <span className="text-slate-600">Produit:</span>
+                              <span className="text-slate-600">{t('results.product')}</span>
                               <strong className="text-slate-800">{result.cluster.characteristics.productPerformance}</strong>
                             </li>
                             <li className="flex justify-between">
-                              <span className="text-slate-600">Delivery:</span>
+                              <span className="text-slate-600">{t('results.delivery')}</span>
                               <strong className="text-slate-800">{result.cluster.characteristics.softwareDelivery}</strong>
                             </li>
                           </ul>
@@ -289,19 +232,19 @@ export default function Home() {
                           style={{ backgroundColor: `${result.cluster.color}15` }}
                         >
                           <h4 className="font-semibold text-xs uppercase tracking-wide mb-3" style={{ color: result.cluster.color }}>
-                            💚 Bien-être
+                            {t('results.wellbeingTitle')}
                           </h4>
                           <ul className="space-y-2 text-xs">
                             <li className="flex justify-between">
-                              <span className="text-slate-600">Burnout:</span>
+                              <span className="text-slate-600">{t('results.burnout')}</span>
                               <strong className="text-slate-800">{result.cluster.characteristics.burnout}</strong>
                             </li>
                             <li className="flex justify-between">
-                              <span className="text-slate-600">Friction:</span>
+                              <span className="text-slate-600">{t('results.friction')}</span>
                               <strong className="text-slate-800">{result.cluster.characteristics.friction}</strong>
                             </li>
                             <li className="flex justify-between">
-                              <span className="text-slate-600">Stabilité:</span>
+                              <span className="text-slate-600">{t('results.stability')}</span>
                               <strong className="text-slate-800">{result.cluster.characteristics.systemStability}</strong>
                             </li>
                           </ul>
