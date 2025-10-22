@@ -335,18 +335,18 @@ export function PositioningMatrix() {
                         <div className="bg-gray-50 p-3 rounded">
                           <h5 className="font-semibold text-xs text-gray-600 mb-2">{t('results.performanceTitle')}</h5>
                           <ul className="space-y-1 text-xs">
-                            <li><strong>{t('results.team')}</strong> {cluster.characteristics.teamPerformance}</li>
-                            <li><strong>{t('results.product')}</strong> {cluster.characteristics.productPerformance}</li>
-                            <li><strong>{t('results.delivery')}</strong> {cluster.characteristics.softwareDelivery}</li>
+                            <li><strong>{t('results.team')}</strong> {t(`characteristics.teamPerformance.${cluster.characteristics.teamPerformance}`)}</li>
+                            <li><strong>{t('results.product')}</strong> {t(`characteristics.productPerformance.${cluster.characteristics.productPerformance}`)}</li>
+                            <li><strong>{t('results.delivery')}</strong> {t(`characteristics.softwareDelivery.${cluster.characteristics.softwareDelivery}`)}</li>
                           </ul>
                         </div>
                         
                         <div className="bg-gray-50 p-3 rounded">
                           <h5 className="font-semibold text-xs text-gray-600 mb-2">{t('results.wellbeingTitle')}</h5>
                           <ul className="space-y-1 text-xs">
-                            <li><strong>{t('results.burnout')}</strong> {cluster.characteristics.burnout}</li>
-                            <li><strong>{t('results.friction')}</strong> {cluster.characteristics.friction}</li>
-                            <li><strong>{t('results.stability')}</strong> {cluster.characteristics.systemStability}</li>
+                            <li><strong>{t('results.burnout')}</strong> {t(`characteristics.burnout.${cluster.characteristics.burnout}`)}</li>
+                            <li><strong>{t('results.friction')}</strong> {t(`characteristics.friction.${cluster.characteristics.friction}`)}</li>
+                            <li><strong>{t('results.stability')}</strong> {t(`characteristics.systemStability.${cluster.characteristics.systemStability}`)}</li>
                           </ul>
                         </div>
                       </div>

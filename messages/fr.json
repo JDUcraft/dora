@@ -253,5 +253,51 @@
     "step2": "Suivez les flèches pour voir le chemin d'amélioration recommandé",
     "step3": "Concentrez-vous sur une transition à la fois",
     "step4": "Chaque étape construit sur les fondations précédentes"
+  },
+  "characteristics": {
+    "teamPerformance": {
+      "Très faible": "Très faible",
+      "Faible": "Faible",
+      "Moyen": "Moyen",
+      "Bonne": "Bonne",
+      "Très forte": "Très forte",
+      "Excellente": "Excellente"
+    },
+    "burnout": {
+      "Très élevé": "Très élevé",
+      "Élevé": "Élevé",
+      "Faible": "Faible",
+      "Moyen": "Moyen",
+      "Très faible": "Très faible"
+    },
+    "friction": {
+      "Très élevée": "Très élevée",
+      "Élevée": "Élevée",
+      "Faible": "Faible",
+      "Modérée": "Modérée"
+    },
+    "productPerformance": {
+      "Très faible": "Très faible",
+      "Faible": "Faible",
+      "Moyen": "Moyen",
+      "Bonne": "Bonne",
+      "Très forte": "Très forte",
+      "Très bonne": "Très bonne",
+      "Excellente": "Excellente"
+    },
+    "softwareDelivery": {
+      "Très faible": "Très faible",
+      "Faible": "Faible",
+      "Moyen": "Moyen",
+      "Bonne": "Bonne",
+      "Très bonne": "Très bonne",
+      "Excellente": "Excellente"
+    },
+    "systemStability": {
+      "Très instable": "Très instable",
+      "Instable": "Instable",
+      "Stable": "Stable",
+      "Très stable": "Très stable"
+    }
   }
 }

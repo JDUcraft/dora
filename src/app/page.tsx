@@ -215,15 +215,15 @@ export default function Home() {
                           <ul className="space-y-2 text-xs">
                             <li className="flex justify-between">
                               <span className="text-slate-600">{t('results.team')}</span>
-                              <strong className="text-slate-800">{result.cluster.characteristics.teamPerformance}</strong>
+                              <strong className="text-slate-800">{t(`characteristics.teamPerformance.${result.cluster.characteristics.teamPerformance}`)}</strong>
                             </li>
                             <li className="flex justify-between">
                               <span className="text-slate-600">{t('results.product')}</span>
-                              <strong className="text-slate-800">{result.cluster.characteristics.productPerformance}</strong>
+                              <strong className="text-slate-800">{t(`characteristics.productPerformance.${result.cluster.characteristics.productPerformance}`)}</strong>
                             </li>
                             <li className="flex justify-between">
                               <span className="text-slate-600">{t('results.delivery')}</span>
-                              <strong className="text-slate-800">{result.cluster.characteristics.softwareDelivery}</strong>
+                              <strong className="text-slate-800">{t(`characteristics.softwareDelivery.${result.cluster.characteristics.softwareDelivery}`)}</strong>
                             </li>
                           </ul>
                         </div>
@@ -238,15 +238,15 @@ export default function Home() {
                           <ul className="space-y-2 text-xs">
                             <li className="flex justify-between">
                               <span className="text-slate-600">{t('results.burnout')}</span>
-                              <strong className="text-slate-800">{result.cluster.characteristics.burnout}</strong>
+                              <strong className="text-slate-800">{t(`characteristics.burnout.${result.cluster.characteristics.burnout}`)}</strong>
                             </li>
                             <li className="flex justify-between">
                               <span className="text-slate-600">{t('results.friction')}</span>
-                              <strong className="text-slate-800">{result.cluster.characteristics.friction}</strong>
+                              <strong className="text-slate-800">{t(`characteristics.friction.${result.cluster.characteristics.friction}`)}</strong>
                             </li>
                             <li className="flex justify-between">
                               <span className="text-slate-600">{t('results.stability')}</span>
-                              <strong className="text-slate-800">{result.cluster.characteristics.systemStability}</strong>
+                              <strong className="text-slate-800">{t(`characteristics.systemStability.${result.cluster.characteristics.systemStability}`)}</strong>
                             </li>
                           </ul>
                         </div>
