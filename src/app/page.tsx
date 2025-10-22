@@ -315,19 +315,6 @@ export default function Home() {
 
 
         <div className="card mb-8 animate-slide-up">
-          <div className="mb-6">
-            <div className="flex justify-between mb-2">
-              <span className="text-sm font-semibold text-slate-700">Progression</span>
-              <span className="text-sm font-semibold text-primary-600">{progress}%</span>
-            </div>
-            <div className="progress-bar">
-              <div
-                className="progress-fill"
-                style={{ width: `${progress}%` }}
-              />
-            </div>
-          </div>
-
           <form className="space-y-10">
             {['performance', 'stability', 'quality', 'wellbeing'].map((theme) => {
               const themeQuestions = questions.filter(q => q.category === theme);
