@@ -275,47 +275,30 @@ export default function Home() {
     );
   }
 
-  const progress = Math.round((Object.keys(answers).length / questions.length) * 100);
-  const answeredCount = Object.keys(answers).length;
-  const totalQuestions = questions.length;
-  const remainingQuestions = totalQuestions - answeredCount;
+
 
   return (
     <>
       <div className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm py-4 px-6 shadow-sm border-b border-slate-200">
-        <div className="max-w-3xl mx-auto">
-          <div className="flex justify-between items-center mb-2">
-            <span className="text-sm font-semibold text-slate-700">{t('common.progression')}</span>
-            <div className="flex items-center gap-4">
-              <select
-                value={locale}
-                onChange={(e) => changeLocale(e.target.value as 'fr' | 'en')}
-                className="text-xs font-semibold text-slate-700 bg-white border border-slate-300 rounded px-2 py-1 hover:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent cursor-pointer"
-              >
-                <option value="fr">🇫🇷 FR</option>
-                <option value="en">🇬🇧 EN</option>
-              </select>
-              <span className="text-sm font-semibold text-blue-600">
-                {answeredCount}/{totalQuestions} • {remainingQuestions} {t('common.remaining')}{remainingQuestions !== 1 && locale === 'fr' ? 's' : ''}
-              </span>
-            </div>
-          </div>
-          <div className="progress-bar">
-            <div
-              className="progress-fill"
-              style={{ width: `${progress}%` }}
-            />
+        <div className="max-w-3xl mx-auto flex justify-between items-center">
+          <h1 className="text-xl md:text-2xl font-bold text-slate-900 absolute left-1/2 transform -translate-x-1/2">
+            {t('home.title')}
+          </h1>
+          <div className="flex items-center gap-4 ml-auto">
+            <select
+              value={locale}
+              onChange={(e) => changeLocale(e.target.value as 'fr' | 'en')}
+              className="text-sm font-semibold text-slate-700 bg-white border border-slate-300 rounded-lg px-3 py-2 hover:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent cursor-pointer"
+            >
+              <option value="fr">🇫🇷 Français</option>
+              <option value="en">🇬🇧 English</option>
+            </select>
           </div>
         </div>
       </div>
 
-      <div className="min-h-screen py-12 px-4 pt-32">
+      <div className="min-h-screen py-12 px-4 pt-24">
         <div className="max-w-3xl mx-auto">
-          <div className="mb-8 text-center animate-fade-in">
-            <h1 className="text-5xl font-bold text-slate-900 mb-3">
-              {t('home.title')}
-            </h1>
-          </div>
 
 
 
