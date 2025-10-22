@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { useReactToPrint } from 'react-to-print';
 import { useTranslation } from '@/hooks/useTranslation';
 import { questions, DiagnosticAnswers } from '@/data/questions';
 import { Question } from '@/components/Question';
@@ -13,13 +14,34 @@ import '@/styles/globals.css';
 export default function Home() {
   const { t, locale, changeLocale } = useTranslation();
   const [answers, setAnswers] = useState<DiagnosticAnswers>({});
+  const [teamName, setTeamName] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const storedAnswers = localStorage.getItem('doraAnswers');
+    const storedSubmitted = localStorage.getItem('doraSubmitted');
+    const storedTeamName = localStorage.getItem('doraTeamName');
+    
+    if (storedAnswers) {
+      setAnswers(JSON.parse(storedAnswers));
+    }
+    if (storedSubmitted === 'true') {
+      setSubmitted(true);
+    }
+    if (storedTeamName) {
+      setTeamName(storedTeamName);
+    }
+  }, []);
 
   useEffect(() => {
     if (submitted) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      localStorage.setItem('doraAnswers', JSON.stringify(answers));
+      localStorage.setItem('doraSubmitted', 'true');
+      localStorage.setItem('doraTeamName', teamName);
     }
-  }, [submitted]);
+  }, [submitted, answers, teamName]);
 
   const handleAnswerChange = (questionId: string, value: number) => {
     setAnswers((prev) => ({
@@ -39,8 +61,19 @@ export default function Home() {
 
   const handleReset = () => {
     setAnswers({});
+    setTeamName('');
     setSubmitted(false);
+    localStorage.removeItem('doraAnswers');
+    localStorage.removeItem('doraSubmitted');
+    localStorage.removeItem('doraTeamName');
   };
+
+  const handleExportPDF = useReactToPrint({
+    contentRef,
+    documentTitle: teamName 
+      ? `DORA_Diagnostic_${teamName.replace(/\s+/g, '_')}`
+      : 'DORA_Diagnostic',
+  });
 
   if (submitted) {
     const result = calculateClusterMatch(answers);
@@ -59,51 +92,68 @@ export default function Home() {
     return (
       <>
         <div className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm py-4 px-6 shadow-sm border-b border-slate-200">
-          <div className="max-w-7xl mx-auto flex justify-between items-center">
-            <button
-              onClick={handleReset}
-              className="btn-secondary text-sm flex items-center gap-2"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M19 12H5M12 19l-7-7 7-7"/>
-              </svg>
-              {t('common.newEvaluation')}
-            </button>
-            <h1 className="text-xl md:text-2xl font-bold text-slate-900 absolute left-1/2 transform -translate-x-1/2">
-              {t('results.title')}
+          <div className="max-w-7xl mx-auto">
+            <div className="flex justify-between items-center gap-2 mb-3">
+              <button
+                onClick={handleReset}
+                className="btn-secondary text-sm flex items-center gap-2 shrink-0"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                <span className="hidden sm:inline">{t('common.newEvaluation')}</span>
+              </button>
+              
+              <div className="flex items-center gap-2 shrink-0">
+                <select
+                  value={locale}
+                  onChange={(e) => changeLocale(e.target.value as 'fr' | 'en')}
+                  className="text-sm font-semibold text-slate-700 bg-white border border-slate-300 rounded-lg px-3 py-2 hover:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent cursor-pointer"
+                >
+                  <option value="fr">🇫🇷 FR</option>
+                  <option value="en">🇬🇧 EN</option>
+                </select>
+                <button
+                  onClick={() => handleExportPDF()}
+                  className="btn-primary text-sm flex items-center gap-2"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                  </svg>
+                  <span className="hidden sm:inline">{t('common.exportPDF')}</span>
+                </button>
+              </div>
+            </div>
+            
+            <h1 className="text-lg md:text-2xl font-bold text-slate-900 text-center px-2 break-words">
+              {teamName ? t('results.titleWithTeam', { teamName }) : t('results.title')}
             </h1>
-            <select
-              value={locale}
-              onChange={(e) => changeLocale(e.target.value as 'fr' | 'en')}
-              className="text-sm font-semibold text-slate-700 bg-white border border-slate-300 rounded-lg px-3 py-2 hover:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent cursor-pointer"
-            >
-              <option value="fr">🇫🇷 Français</option>
-              <option value="en">🇬🇧 English</option>
-            </select>
           </div>
         </div>
 
-        <div className="min-h-screen py-6 md:py-12 pt-24 md:pt-32">
-          <div className="w-full">
+        <div className="min-h-screen py-6 md:py-12 pt-44 md:pt-40 overflow-x-hidden">
+          <div className="w-full max-w-full" ref={contentRef}>
 
           <div className="max-w-7xl mx-auto px-4 mb-8 animate-fade-in">
-            <div className="w-full bg-white rounded-lg shadow-lg p-4 md:p-6">
-              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-center">{t('results.diagnostic')}</h2>
+            <div className="w-full bg-white border border-slate-200 rounded-xl shadow-sm p-4 md:p-6">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-center text-slate-900">{t('results.diagnostic')}</h2>
               
-              <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-                <div className="min-w-0">
+              <div className="grid md:grid-cols-2 gap-6 md:gap-8 w-full">
+                <div className="min-w-0 w-full overflow-hidden">
                   <h3 className="text-base md:text-lg font-bold text-slate-800 mb-3 md:mb-4">{t('results.yourCluster')}</h3>
                 <div
-                  className="rounded-lg md:rounded-xl p-3 md:p-6 text-white mb-4 md:mb-6 shadow-lg"
+                  className="rounded-lg md:rounded-xl p-3 md:p-6 text-white mb-4 md:mb-6 shadow-lg w-full overflow-hidden"
                   style={{ 
                     background: `linear-gradient(135deg, ${result.cluster.color}dd, ${result.cluster.color})` 
                   }}
                 >
-                  <h3 className="text-xl md:text-3xl font-bold mb-2">
+                  <h3 className="text-base md:text-2xl font-bold mb-2 !text-white break-words">
                     {t('results.cluster', { id: result.cluster.id })}
                   </h3>
-                  <p className="text-base md:text-xl font-semibold mb-2 md:mb-4">{t(`clusters.${result.cluster.id}.name`)}</p>
-                  <p className="text-sm md:text-lg opacity-95 leading-snug">{t(`clusters.${result.cluster.id}.description`)}</p>
+                  <p className="text-sm md:text-lg font-semibold mb-2 md:mb-4 !text-white break-words">{t(`clusters.${result.cluster.id}.name`)}</p>
+                  <p className="text-xs md:text-base opacity-95 leading-snug !text-white break-words">{t(`clusters.${result.cluster.id}.description`)}</p>
                 </div>
 
                 {nextTrajectory && (
@@ -168,7 +218,7 @@ export default function Home() {
                   </div>
                 )}
 
-                <div className="min-w-0">
+                <div className="min-w-0 w-full">
                   <h3 className="text-base md:text-lg font-semibold text-slate-800 mb-2 md:mb-3">{t('results.recommendations')}</h3>
                   {(() => {
                     const colorMap: Record<number, { from: string; to: string; border: string; title: string; text: string }> = {
@@ -196,9 +246,11 @@ export default function Home() {
                 </div>
               </div>
 
-              <div>
+              <div className="w-full overflow-hidden">
                 <h3 className="text-lg font-bold text-slate-800 mb-4">{t('results.clusterRadar')}</h3>
-                <RadarChart cluster={result.cluster} />
+                <div className="w-full overflow-x-auto">
+                  <RadarChart key={locale} cluster={result.cluster} />
+                </div>
 
                 <div className="mt-8 pt-6 border-t border-slate-200">
                   <h3 className="text-lg font-semibold text-slate-800 mb-4">{t('results.clusterDetails')}</h3>
@@ -263,11 +315,11 @@ export default function Home() {
         </div>
 
             <div className="max-w-7xl mx-auto px-4 mb-8 animate-fade-in">
-              <PositioningMatrix />
+              <PositioningMatrix key={locale} />
             </div>
 
             <div className="max-w-7xl mx-auto px-4 mb-8 animate-fade-in">
-              <ImprovementTrajectory />
+              <ImprovementTrajectory key={locale} />
             </div>
           </div>
         </div>
@@ -298,7 +350,21 @@ export default function Home() {
       <div className="min-h-screen py-12 px-4 pt-24">
         <div className="max-w-3xl mx-auto">
 
-
+        <div className="card mb-8 animate-slide-up">
+          <div className="mb-6">
+            <label htmlFor="teamName" className="block text-sm font-semibold text-slate-700 mb-2">
+              {t('home.teamNameLabel')}
+            </label>
+            <input
+              type="text"
+              id="teamName"
+              value={teamName}
+              onChange={(e) => setTeamName(e.target.value)}
+              placeholder={t('home.teamNamePlaceholder')}
+              className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            />
+          </div>
+        </div>
 
         <div className="card mb-8 animate-slide-up">
           <form className="space-y-10">
