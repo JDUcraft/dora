@@ -1,13 +1,17 @@
 {
   "common": {
     "progression": "Progression",
-    "remaining": "restante",
-    "newEvaluation": "Nouvelle évaluation"
+    "remaining": "restantes",
+    "newEvaluation": "Nouvelle évaluation",
+    "exportPDF": "Exporter en PDF",
+    "exporting": "Exportation..."
   },
   "home": {
-    "title": "Identifiez le profil de votre équipe de delivery software",
+    "title": "Identifiez le profil de votre équipe de livraison logicielle",
     "submitButton": "Voir mon profil DORA",
-    "alertIncomplete": "Veuillez répondre à toutes les questions ({answered}/{total})"
+    "alertIncomplete": "Veuillez répondre à toutes les questions ({answered}/{total})",
+    "teamNameLabel": "Nom de l'équipe",
+    "teamNamePlaceholder": "Ex: Équipe Backend, Équipe Mobile..."
   },
   "categories": {
     "performance": "Performance",
@@ -107,7 +111,8 @@
   },
   "results": {
     "title": "Analyse complète de votre équipe",
-    "diagnostic": "Votre Diagnostic DORA",
+    "titleWithTeam": "Analyse complète de l'équipe {teamName}",
+    "diagnostic": "Diagnostic DORA",
     "yourCluster": "Votre cluster",
     "cluster": "Cluster {id}",
     "trajectory": "Trajectoire d'amélioration",
@@ -145,7 +150,7 @@
     "2": {
       "title": "Plan de modernisation",
       "items": {
-        "0": "Réduire la dépendance aux systèmes hérités",
+        "0": "Réduire la dépendance aux systèmes legacy",
         "1": "Automatiser les processus répétitifs",
         "2": "Implémenter une stratégie d'extraction progressive",
         "3": "Former l'équipe aux nouvelles technologies"
@@ -199,32 +204,32 @@
   },
   "clusters": {
     "1": {
-      "name": "Foundational challenges",
-      "description": "Équipes confrontées aux défis fondamentaux"
+      "name": "Défis fondamentaux",
+      "description": "Équipes en mode survie, confrontées à des défis majeurs avec des lacunes fondamentales dans leurs processus, leur environnement et leurs résultats."
     },
     "2": {
-      "name": "The legacy bottleneck",
-      "description": "Équipes coincées par les systèmes hérités"
+      "name": "Le goulot legacy",
+      "description": "Équipes en réaction constante, où des systèmes instables dictent leur travail et sapent leur moral."
     },
     "3": {
-      "name": "Constrained by process",
-      "description": "Équipes limitées par des processus inefficaces"
+      "name": "Contraints par le processus",
+      "description": "Équipes sur un tapis roulant. Malgré le travail sur des systèmes stables, leur effort est consommé par des processus inefficaces, menant à un burnout élevé et un faible impact."
     },
     "4": {
-      "name": "High impact, low cadence",
-      "description": "Impact fort mais déploiements lents"
+      "name": "Fort impact, faible cadence",
+      "description": "Équipes qui produisent un travail à fort impact, reflété par une forte performance produit et une efficacité individuelle élevée. Cependant, cela est couplé à un modèle de livraison à faible cadence caractérisé par un faible débit de livraison logicielle et une forte instabilité."
     },
     "5": {
-      "name": "Stable and methodical",
-      "description": "Équipes stables et méthodiques"
+      "name": "Stable et méthodique",
+      "description": "Les artisans réguliers du monde logiciel, livrant un travail de haute qualité et à forte valeur à un rythme délibéré et durable."
     },
     "6": {
-      "name": "Pragmatic performers",
-      "description": "Équipes pragmatiques hautement performantes"
+      "name": "Performeurs pragmatiques",
+      "description": "Équipes qui livrent constamment du travail avec une vitesse et une stabilité impressionnantes, même si leur environnement de travail n'a pas atteint un état d'engagement optimal."
     },
     "7": {
-      "name": "Harmonious high-achiever",
-      "description": "Excellence totale - cycle vertueux"
+      "name": "Haute performance harmonieuse",
+      "description": "Voici à quoi ressemble l'excellence—un cercle vertueux où un environnement stable et sans friction permet aux équipes de livrer un travail de haute qualité de manière durable et sans burnout."
     }
   },
   "matrix": {
@@ -247,12 +252,22 @@
     "action": "Action:"
   },
   "trajectory": {
-    "title": "Trajectoire d'Amélioration DORA",
+    "title": "Trajectoire d'amélioration DORA",
     "howToUse": "Comment utiliser cette trajectoire",
     "step1": "Identifiez votre cluster actuel dans le diagnostic",
     "step2": "Suivez les flèches pour voir le chemin d'amélioration recommandé",
     "step3": "Concentrez-vous sur une transition à la fois",
     "step4": "Chaque étape construit sur les fondations précédentes"
+  },
+  "radar": {
+    "teamPerformance": "Performance\néquipe",
+    "productPerformance": "Performance\nproduit",
+    "softwareDeliveryThroughput": "Débit de\nlivraison",
+    "softwareDeliveryInstability": "Instabilité de\nlivraison",
+    "valuableWork": "Travail\nà valeur",
+    "friction": "Friction",
+    "burnout": "Burnout",
+    "individualEffectiveness": "Efficacité\nindividuelle"
   },
   "characteristics": {
     "teamPerformance": {

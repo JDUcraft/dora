@@ -2,12 +2,16 @@
   "common": {
     "progression": "Progress",
     "remaining": "remaining",
-    "newEvaluation": "New evaluation"
+    "newEvaluation": "New evaluation",
+    "exportPDF": "Export to PDF",
+    "exporting": "Exporting..."
   },
   "home": {
     "title": "Identify your software delivery team's profile",
     "submitButton": "View my DORA profile",
-    "alertIncomplete": "Please answer all questions ({answered}/{total})"
+    "alertIncomplete": "Please answer all questions ({answered}/{total})",
+    "teamNameLabel": "Team name",
+    "teamNamePlaceholder": "Ex: Backend Team, Mobile Team..."
   },
   "categories": {
     "performance": "Performance",
@@ -107,7 +111,8 @@
   },
   "results": {
     "title": "Complete analysis of your team",
-    "diagnostic": "Your DORA Diagnostic",
+    "titleWithTeam": "Complete analysis of team {teamName}",
+    "diagnostic": "DORA Diagnostic",
     "yourCluster": "Your cluster",
     "cluster": "Cluster {id}",
     "trajectory": "Improvement trajectory",
@@ -253,6 +258,16 @@
     "step2": "Follow the arrows to see the recommended improvement path",
     "step3": "Focus on one transition at a time",
     "step4": "Each step builds on previous foundations"
+  },
+  "radar": {
+    "teamPerformance": "Team\nperformance",
+    "productPerformance": "Product\nperformance",
+    "softwareDeliveryThroughput": "Software delivery\nthroughput",
+    "softwareDeliveryInstability": "Software delivery\ninstability",
+    "valuableWork": "Valuable\nwork",
+    "friction": "Friction",
+    "burnout": "Burnout",
+    "individualEffectiveness": "Individual\neffectiveness"
   },
   "characteristics": {
     "teamPerformance": {
