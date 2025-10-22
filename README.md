@@ -7,7 +7,7 @@ Application Next.js interactive pour identifier le profil DORA de votre équipe 
 Cette application implémente les 7 profils d'équipes identifiés dans le rapport DORA 2025 :
 
 1. **Foundational challenges** (10%) - Équipes confrontées aux défis fondamentaux
-2. **The legacy bottleneck** (11%) - Équipes coincées par les systèmes hérités  
+2. **The legacy bottleneck** (11%) - Équipes coincées par les systèmes legacy  
 3. **Constrained by process** (17%) - Équipes limitées par des processus inefficaces
 4. **High impact, low cadence** (7%) - Impact fort mais déploiements lents
 5. **Stable and methodical** (15%) - Équipes stables et méthodiques

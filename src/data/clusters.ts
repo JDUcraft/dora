@@ -29,7 +29,7 @@ export const clusters = [
     name: "The legacy bottleneck",
     percentage: 11,
     color: "#f57c00",
-    description: "Équipes coincées par les systèmes hérités",
+    description: "Équipes coincées par les systèmes legacy",
     characteristics: {
       teamPerformance: "Faible",
       burnout: "Élevé",
