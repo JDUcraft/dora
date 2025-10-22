@@ -226,5 +226,32 @@
       "name": "Harmonious high-achiever",
       "description": "Excellence totale - cycle vertueux"
     }
+  },
+  "matrix": {
+    "title": "Matrice de Positionnement DORA - Stabilité vs Bien-être Équipe",
+    "xAxis": "Stabilité Système (Instable → Stable)",
+    "yAxis": "Bien-être Équipe (Mauvais → Excellent)",
+    "q1Title": "Q1: Zone Optimale",
+    "q1Description": "Stable + Bon/Excellent bien-être",
+    "q1Action": "Maintenir et progresser vers l'excellence",
+    "q2Title": "Q2: Paradoxe",
+    "q2Description": "Instable + Bon bien-être",
+    "q2Action": "Stabiliser les systèmes sans perdre le moral",
+    "q3Title": "Q3: Zone Critique",
+    "q3Description": "Instable + Mauvais bien-être",
+    "q3Action": "Stabiliser ET améliorer bien-être (URGENT)",
+    "q4Title": "Q4: Stabilité sans bien-être",
+    "q4Description": "Stable + Mauvais bien-être",
+    "q4Action": "Améliorer le bien-être équipe (processus, autonomie)",
+    "clusterDetailsTitle": "Détails des Clusters",
+    "action": "Action:"
+  },
+  "trajectory": {
+    "title": "Trajectoire d'Amélioration DORA",
+    "howToUse": "Comment utiliser cette trajectoire",
+    "step1": "Identifiez votre cluster actuel dans le diagnostic",
+    "step2": "Suivez les flèches pour voir le chemin d'amélioration recommandé",
+    "step3": "Concentrez-vous sur une transition à la fois",
+    "step4": "Chaque étape construit sur les fondations précédentes"
   }
 }

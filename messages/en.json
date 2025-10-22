@@ -226,5 +226,32 @@
       "name": "Harmonious high-achiever",
       "description": "This is what excellence looks like—a virtuous cycle where a stable, low-friction environment empowers teams to deliver high-quality work sustainably and without burnout."
     }
+  },
+  "matrix": {
+    "title": "DORA Positioning Matrix - Stability vs Team Well-being",
+    "xAxis": "System Stability (Unstable → Stable)",
+    "yAxis": "Team Well-being (Poor → Excellent)",
+    "q1Title": "Q1: Optimal Zone",
+    "q1Description": "Stable + Good/Excellent well-being",
+    "q1Action": "Maintain and progress towards excellence",
+    "q2Title": "Q2: Paradox",
+    "q2Description": "Unstable + Good well-being",
+    "q2Action": "Stabilize systems without losing morale",
+    "q3Title": "Q3: Critical Zone",
+    "q3Description": "Unstable + Poor well-being",
+    "q3Action": "Stabilize AND improve well-being (URGENT)",
+    "q4Title": "Q4: Stability without well-being",
+    "q4Description": "Stable + Poor well-being",
+    "q4Action": "Improve team well-being (process, autonomy)",
+    "clusterDetailsTitle": "Cluster Details",
+    "action": "Action:"
+  },
+  "trajectory": {
+    "title": "DORA Improvement Trajectory",
+    "howToUse": "How to use this trajectory",
+    "step1": "Identify your current cluster in the diagnostic",
+    "step2": "Follow the arrows to see the recommended improvement path",
+    "step3": "Focus on one transition at a time",
+    "step4": "Each step builds on previous foundations"
   }
 }

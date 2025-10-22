@@ -1,6 +1,10 @@
+'use client';
+
 import { getAllClusters } from "@/lib/diagnostic";
+import { useTranslation } from "@/hooks/useTranslation";
 
 export function PositioningMatrix() {
+  const { t } = useTranslation();
   const clusters = getAllClusters();
 
   const clusterPositions: Record<number, { x: number; y: number }> = {
@@ -23,7 +27,7 @@ export function PositioningMatrix() {
   return (
     <div className="w-full bg-white border border-slate-200 rounded-xl shadow-sm p-4 md:p-6">
       <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-center text-slate-900">
-        Matrice de Positionnement DORA - Stabilité vs Bien-être Équipe
+        {t('matrix.title')}
       </h2>
 
       <div className="w-full">
@@ -122,67 +126,37 @@ export function PositioningMatrix() {
           fontWeight="bold"
           fill="#92400e"
         >
-          Q2: Paradoxe
+          {t('matrix.q2Title')}
         </text>
         <text
           x={padding + (3 * graphWidth) / 4}
-          y={padding + graphHeight / 4 - 10}
+          y={padding + graphHeight / 4}
           textAnchor="middle"
           fontSize="13"
           fontWeight="bold"
           fill="#15803d"
         >
-          Q1: Zone
-        </text>
-        <text
-          x={padding + (3 * graphWidth) / 4}
-          y={padding + graphHeight / 4 + 5}
-          textAnchor="middle"
-          fontSize="13"
-          fontWeight="bold"
-          fill="#15803d"
-        >
-          Optimale
+          {t('matrix.q1Title')}
         </text>
         <text
           x={padding + graphWidth / 4}
-          y={padding + (3 * graphHeight) / 4 - 10}
+          y={padding + (3 * graphHeight) / 4}
           textAnchor="middle"
           fontSize="13"
           fontWeight="bold"
           fill="#991b1b"
         >
-          Q3: Zone
-        </text>
-        <text
-          x={padding + graphWidth / 4}
-          y={padding + (3 * graphHeight) / 4 + 5}
-          textAnchor="middle"
-          fontSize="13"
-          fontWeight="bold"
-          fill="#991b1b"
-        >
-          Critique
+          {t('matrix.q3Title')}
         </text>
         <text
           x={padding + (3 * graphWidth) / 4}
-          y={padding + (3 * graphHeight) / 4 - 10}
+          y={padding + (3 * graphHeight) / 4}
           textAnchor="middle"
           fontSize="13"
           fontWeight="bold"
           fill="#92400e"
         >
-          Q4: Stabilité
-        </text>
-        <text
-          x={padding + (3 * graphWidth) / 4}
-          y={padding + (3 * graphHeight) / 4 + 5}
-          textAnchor="middle"
-          fontSize="13"
-          fontWeight="bold"
-          fill="#92400e"
-        >
-          sans bien-être
+          {t('matrix.q4Title')}
         </text>
 
         {[0, 0.25, 0.5, 0.75, 1].map((val) => {
@@ -243,7 +217,7 @@ export function PositioningMatrix() {
           fontWeight="bold"
           fill="#333"
         >
-          Stabilité Système (Instable → Stable)
+          {t('matrix.xAxis')}
         </text>
 
         <text
@@ -255,7 +229,7 @@ export function PositioningMatrix() {
           fill="#333"
           transform={`rotate(-90 20 ${height / 2})`}
         >
-          Bien-être Équipe (Mauvais → Excellent)
+          {t('matrix.yAxis')}
         </text>
 
         {clusters.map((cluster) => {
@@ -293,48 +267,48 @@ export function PositioningMatrix() {
 
       <div className="mt-6 md:mt-8 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
         <div className="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-500">
-          <h3 className="font-bold text-yellow-900 mb-2">Q2 - Paradoxe 🟡</h3>
+          <h3 className="font-bold text-yellow-900 mb-2">{t('matrix.q2Title')} 🟡</h3>
           <p className="text-sm text-yellow-800 mb-2">
-            <strong>Cluster 4</strong> - Instable + Bon bien-être
+            <strong>Cluster 4</strong> - {t('matrix.q2Description')}
           </p>
           <p className="text-xs text-yellow-700">
-            <strong>Action:</strong> Stabiliser les systèmes sans perdre le moral
+            <strong>{t('matrix.action')}</strong> {t('matrix.q2Action')}
           </p>
         </div>
 
         <div className="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
-          <h3 className="font-bold text-green-900 mb-2">Q1 - Zone Optimale 🟢</h3>
+          <h3 className="font-bold text-green-900 mb-2">{t('matrix.q1Title')} 🟢</h3>
           <p className="text-sm text-green-800 mb-2">
-            <strong>Clusters 5, 6, 7</strong> - Stable + Bon/Excellent bien-être
+            <strong>Clusters 5, 6, 7</strong> - {t('matrix.q1Description')}
           </p>
           <p className="text-xs text-green-700">
-            <strong>Action:</strong> Maintenir et progresser vers l'excellence
+            <strong>{t('matrix.action')}</strong> {t('matrix.q1Action')}
           </p>
         </div>
 
         <div className="bg-red-50 p-4 rounded-lg border-l-4 border-red-500">
-          <h3 className="font-bold text-red-900 mb-2">Q3 - Zone Critique 🔴</h3>
+          <h3 className="font-bold text-red-900 mb-2">{t('matrix.q3Title')} 🔴</h3>
           <p className="text-sm text-red-800 mb-2">
-            <strong>Clusters 1, 2</strong> - Instable + Mauvais bien-être
+            <strong>Clusters 1, 2</strong> - {t('matrix.q3Description')}
           </p>
           <p className="text-xs text-red-700">
-            <strong>Action:</strong> Stabiliser ET améliorer bien-être (URGENT)
+            <strong>{t('matrix.action')}</strong> {t('matrix.q3Action')}
           </p>
         </div>
 
         <div className="bg-amber-50 p-4 rounded-lg border-l-4 border-amber-500">
-          <h3 className="font-bold text-amber-900 mb-2">Q4 - Contrainte 🟡</h3>
+          <h3 className="font-bold text-amber-900 mb-2">{t('matrix.q4Title')} 🟡</h3>
           <p className="text-sm text-amber-800 mb-2">
-            <strong>Cluster 3</strong> - Stable + Mauvais bien-être
+            <strong>Cluster 3</strong> - {t('matrix.q4Description')}
           </p>
           <p className="text-xs text-amber-700">
-            <strong>Action:</strong> Améliorer le bien-être équipe (processus, autonomie)
+            <strong>{t('matrix.action')}</strong> {t('matrix.q4Action')}
           </p>
         </div>
       </div>
 
       <div className="mt-8">
-        <h3 className="font-bold text-lg mb-4">Détails des Clusters</h3>
+        <h3 className="font-bold text-lg mb-4">{t('matrix.clusterDetailsTitle')}</h3>
         <div className="space-y-4">
           {clusters.map((cluster) => {
             return (
@@ -353,26 +327,26 @@ export function PositioningMatrix() {
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center justify-between mb-2">
-                        <h4 className="font-bold text-lg">{cluster.name}</h4>
+                        <h4 className="font-bold text-lg">{t(`clusters.${cluster.id}.name`)}</h4>
                       </div>
-                      <p className="text-sm text-gray-700 mb-3">{cluster.description}</p>
+                      <p className="text-sm text-gray-700 mb-3">{t(`clusters.${cluster.id}.description`)}</p>
                       
                       <div className="grid md:grid-cols-2 gap-3 text-sm">
                         <div className="bg-gray-50 p-3 rounded">
-                          <h5 className="font-semibold text-xs text-gray-600 mb-2">📊 Performance</h5>
+                          <h5 className="font-semibold text-xs text-gray-600 mb-2">{t('results.performanceTitle')}</h5>
                           <ul className="space-y-1 text-xs">
-                            <li><strong>Équipe:</strong> {cluster.characteristics.teamPerformance}</li>
-                            <li><strong>Produit:</strong> {cluster.characteristics.productPerformance}</li>
-                            <li><strong>Delivery:</strong> {cluster.characteristics.softwareDelivery}</li>
+                            <li><strong>{t('results.team')}</strong> {cluster.characteristics.teamPerformance}</li>
+                            <li><strong>{t('results.product')}</strong> {cluster.characteristics.productPerformance}</li>
+                            <li><strong>{t('results.delivery')}</strong> {cluster.characteristics.softwareDelivery}</li>
                           </ul>
                         </div>
                         
                         <div className="bg-gray-50 p-3 rounded">
-                          <h5 className="font-semibold text-xs text-gray-600 mb-2">💚 Bien-être</h5>
+                          <h5 className="font-semibold text-xs text-gray-600 mb-2">{t('results.wellbeingTitle')}</h5>
                           <ul className="space-y-1 text-xs">
-                            <li><strong>Burnout:</strong> {cluster.characteristics.burnout}</li>
-                            <li><strong>Friction:</strong> {cluster.characteristics.friction}</li>
-                            <li><strong>Stabilité:</strong> {cluster.characteristics.systemStability}</li>
+                            <li><strong>{t('results.burnout')}</strong> {cluster.characteristics.burnout}</li>
+                            <li><strong>{t('results.friction')}</strong> {cluster.characteristics.friction}</li>
+                            <li><strong>{t('results.stability')}</strong> {cluster.characteristics.systemStability}</li>
                           </ul>
                         </div>
                       </div>
