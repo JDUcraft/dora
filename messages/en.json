@@ -1,0 +1,147 @@
+{
+  "common": {
+    "progression": "Progress",
+    "remaining": "remaining",
+    "newEvaluation": "← New evaluation"
+  },
+  "home": {
+    "title": "Identify your software delivery team's profile",
+    "submitButton": "View my DORA profile",
+    "alertIncomplete": "Please answer all questions ({answered}/{total})"
+  },
+  "categories": {
+    "performance": "Performance",
+    "stability": "Stability",
+    "quality": "Quality",
+    "wellbeing": "Well-being"
+  },
+  "questions": {
+    "lead_time": {
+      "question": "What is your lead time for changes (from code committed to code running in production)?",
+      "answers": {
+        "1": "More than six months",
+        "2": "Between one month and six months",
+        "3": "Between one week and one month",
+        "4": "Between one day and one week",
+        "5": "Less than one day",
+        "6": "Less than one hour"
+      }
+    },
+    "deployment_frequency": {
+      "question": "How often does your organization deploy code to production or release it to end users?",
+      "answers": {
+        "1": "Fewer than once per six months",
+        "2": "Between once per month and once every six months",
+        "3": "Between once per week and once per month",
+        "4": "Between once per day and once per week",
+        "5": "Between once per hour and once per day",
+        "6": "On demand (multiple deploys per day)"
+      }
+    },
+    "recovery_time": {
+      "question": "How long does it generally take to restore service after a change to production or release to users results in degraded service (for example, leads to service impairment or service outage) and subsequently requires remediation (for example, requires a hotfix, rollback, fix forward, or patch)?",
+      "answers": {
+        "1": "More than six months",
+        "2": "Between one month and six months",
+        "3": "Between one week and one month",
+        "4": "Between one day and one week",
+        "5": "Less than one day",
+        "6": "Less than one hour"
+      }
+    },
+    "change_failure_rate": {
+      "question": "Approximately what percentage of changes to production or releases to users result in degraded service (for example, lead to service impairment or service outage) and subsequently require remediation (for example, require a hotfix, rollback, fix forward, or patch), if at all?",
+      "answers": {
+        "1": ">64%",
+        "2": "32%-64%",
+        "3": "16%-32%",
+        "4": "8%-16%",
+        "5": "4%-8%",
+        "6": "0%-2%"
+      }
+    },
+    "rework_rate": {
+      "question": "Approximately what percentage of deployments in the last six months were not planned but were performed to address a user-facing bug in the application?",
+      "answers": {
+        "1": ">64%",
+        "2": "32%-64%",
+        "3": "16%-32%",
+        "4": "8%-16%",
+        "5": "4%-8%",
+        "6": "0%-2%"
+      }
+    },
+    "burnout": {
+      "question": "Team burnout level?",
+      "answers": {
+        "1": "Extremely high",
+        "2": "Very high",
+        "3": "High",
+        "4": "Moderate",
+        "5": "Low",
+        "6": "Very low"
+      }
+    },
+    "friction": {
+      "question": "Friction / obstacles level in work?",
+      "answers": {
+        "1": "Very high - constantly blocked",
+        "2": "High - frequent obstacles",
+        "3": "Moderate - regular obstacles",
+        "4": "Low - occasional obstacles",
+        "5": "Very low - few obstacles",
+        "6": "Minimal - fluid workflow"
+      }
+    },
+    "valuable_work": {
+      "question": "% of time spent on valuable work vs reactive work?",
+      "answers": {
+        "1": "< 10% valuable",
+        "2": "10%-25% valuable",
+        "3": "25%-50% valuable",
+        "4": "50%-75% valuable",
+        "5": "75%-90% valuable",
+        "6": "> 90% valuable"
+      }
+    }
+  },
+  "results": {
+    "title": "Complete analysis of your team",
+    "diagnostic": "Your DORA Diagnostic",
+    "yourCluster": "Your cluster",
+    "cluster": "Cluster {id}",
+    "trajectory": "Improvement trajectory",
+    "nextStep": "Next step: <strong>Cluster {to}</strong> - Focus on the recommendations below to progress towards this improvement trajectory.",
+    "recommendations": "Recommendations"
+  },
+  "clusters": {
+    "1": {
+      "name": "Foundational challenges",
+      "description": "Teams stuck in survival mode, facing significant challenges with fundamental gaps in their processes, environment, and outcomes."
+    },
+    "2": {
+      "name": "The legacy bottleneck",
+      "description": "Teams in a constant state of reaction, where unstable systems dictate their work and undermine their morale."
+    },
+    "3": {
+      "name": "Constrained by process",
+      "description": "Teams running on a treadmill. Despite working on stable systems, their effort is consumed by inefficient processes, leading to high burnout and low impact."
+    },
+    "4": {
+      "name": "High impact, low cadence",
+      "description": "Teams that produce high-impact work, reflected in strong product performance and high individual effectiveness. However, this is coupled with a low-cadence delivery model characterized by low software delivery throughput and high instability."
+    },
+    "5": {
+      "name": "Stable and methodical",
+      "description": "The steady artisans of the software world, delivering high-quality, valuable work at a deliberate and sustainable pace."
+    },
+    "6": {
+      "name": "Pragmatic performers",
+      "description": "Teams that consistently deliver work with impressive speed and stability, even if their work environment hasn't reached a state of peak engagement."
+    },
+    "7": {
+      "name": "Harmonious high-achiever",
+      "description": "This is what excellence looks like—a virtuous cycle where a stable, low-friction environment empowers teams to deliver high-quality work sustainably and without burnout."
+    }
+  }
+}

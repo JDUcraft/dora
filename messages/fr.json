@@ -1,0 +1,147 @@
+{
+  "common": {
+    "progression": "Progression",
+    "remaining": "restante",
+    "newEvaluation": "← Nouvelle évaluation"
+  },
+  "home": {
+    "title": "Identifiez le profil de votre équipe de delivery software",
+    "submitButton": "Voir mon profil DORA",
+    "alertIncomplete": "Veuillez répondre à toutes les questions ({answered}/{total})"
+  },
+  "categories": {
+    "performance": "Performance",
+    "stability": "Stabilité",
+    "quality": "Qualité",
+    "wellbeing": "Bien-être"
+  },
+  "questions": {
+    "lead_time": {
+      "question": "Quel est le lead time pour vos déploiements (du code committé au code en production) ?",
+      "answers": {
+        "1": "Plus de 6 mois",
+        "2": "Entre 1 mois et 6 mois",
+        "3": "Entre 1 semaine et 1 mois",
+        "4": "Entre 1 jour et 1 semaine",
+        "5": "Moins d'1 jour",
+        "6": "Moins d'1 heure"
+      }
+    },
+    "deployment_frequency": {
+      "question": "À quelle fréquence votre organisation déploie-t-elle du code en production ou le met-elle à la disposition des utilisateurs finaux ?",
+      "answers": {
+        "1": "Moins d'une fois tous les six mois",
+        "2": "Entre une fois par mois et une fois tous les six mois",
+        "3": "Entre une fois par semaine et une fois par mois",
+        "4": "Entre une fois par jour et une fois par semaine",
+        "5": "Entre une fois par heure et une fois par jour",
+        "6": "À la demande (plusieurs déploiements par jour)"
+      }
+    },
+    "recovery_time": {
+      "question": "Combien de temps faut-il généralement pour restaurer le service après un changement en production ou une mise à jour qui dégrade le service (par exemple, entraîne une dégradation du service ou une interruption de service) et nécessite ensuite une remédiation (par exemple, nécessite un correctif, un rollback, une correction vers l'avant ou un patch) ?",
+      "answers": {
+        "1": "Plus de 6 mois",
+        "2": "Entre 1 mois et 6 mois",
+        "3": "Entre 1 semaine et 1 mois",
+        "4": "Entre 1 jour et 1 semaine",
+        "5": "Moins d'1 jour",
+        "6": "Moins d'1 heure"
+      }
+    },
+    "change_failure_rate": {
+      "question": "Approximativement, quel pourcentage de changements en production ou de mises à jour pour les utilisateurs entraîne une dégradation du service (par exemple, entraîne une dégradation du service ou une interruption de service) et nécessite ensuite une remédiation (par exemple, nécessite un correctif, un rollback, une correction vers l'avant ou un patch) ?",
+      "answers": {
+        "1": ">64%",
+        "2": "32%-64%",
+        "3": "16%-32%",
+        "4": "8%-16%",
+        "5": "4%-8%",
+        "6": "0%-2%"
+      }
+    },
+    "rework_rate": {
+      "question": "Approximativement, quel pourcentage de déploiements au cours des six derniers mois n'étaient pas planifiés mais ont été effectués pour corriger un bug orienté utilisateur dans l'application ?",
+      "answers": {
+        "1": ">64%",
+        "2": "32%-64%",
+        "3": "16%-32%",
+        "4": "8%-16%",
+        "5": "4%-8%",
+        "6": "0%-2%"
+      }
+    },
+    "burnout": {
+      "question": "Niveau de burnout dans l'équipe ?",
+      "answers": {
+        "1": "Extrêmement élevé",
+        "2": "Très élevé",
+        "3": "Élevé",
+        "4": "Modéré",
+        "5": "Faible",
+        "6": "Très faible"
+      }
+    },
+    "friction": {
+      "question": "Niveau de friction / obstacles dans le travail ?",
+      "answers": {
+        "1": "Très élevé - bloqué constamment",
+        "2": "Élevé - obstacles fréquents",
+        "3": "Modéré - obstacles réguliers",
+        "4": "Faible - obstacles occasionnels",
+        "5": "Très faible - peu d'obstacles",
+        "6": "Minimal - workflow fluide"
+      }
+    },
+    "valuable_work": {
+      "question": "% du temps consacré à du travail utile vs réactif ?",
+      "answers": {
+        "1": "< 10% utile",
+        "2": "10%-25% utile",
+        "3": "25%-50% utile",
+        "4": "50%-75% utile",
+        "5": "75%-90% utile",
+        "6": "> 90% utile"
+      }
+    }
+  },
+  "results": {
+    "title": "Analyse complète de votre équipe",
+    "diagnostic": "Votre Diagnostic DORA",
+    "yourCluster": "Votre cluster",
+    "cluster": "Cluster {id}",
+    "trajectory": "Trajectoire d'amélioration",
+    "nextStep": "Prochaine étape : <strong>Cluster {to}</strong> - Concentrez-vous sur les recommandations ci-dessous pour progresser vers cette trajectoire d'amélioration.",
+    "recommendations": "Recommandations"
+  },
+  "clusters": {
+    "1": {
+      "name": "Foundational challenges",
+      "description": "Équipes confrontées aux défis fondamentaux"
+    },
+    "2": {
+      "name": "The legacy bottleneck",
+      "description": "Équipes coincées par les systèmes hérités"
+    },
+    "3": {
+      "name": "Constrained by process",
+      "description": "Équipes limitées par des processus inefficaces"
+    },
+    "4": {
+      "name": "High impact, low cadence",
+      "description": "Impact fort mais déploiements lents"
+    },
+    "5": {
+      "name": "Stable and methodical",
+      "description": "Équipes stables et méthodiques"
+    },
+    "6": {
+      "name": "Pragmatic performers",
+      "description": "Équipes pragmatiques hautement performantes"
+    },
+    "7": {
+      "name": "Harmonious high-achiever",
+      "description": "Excellence totale - cycle vertueux"
+    }
+  }
+}
