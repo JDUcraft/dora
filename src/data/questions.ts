@@ -1,0 +1,108 @@
+export const questions = [
+  {
+    id: "lead_time",
+    category: "performance",
+    question: "Quel est le lead time pour vos déploiements (du code committé au code en production) ?",
+    answers: [
+      { value: 1, text: "Plus de 6 mois", weight: 1 },
+      { value: 2, text: "Entre 1 mois et 6 mois", weight: 2 },
+      { value: 3, text: "Entre 1 semaine et 1 mois", weight: 4 },
+      { value: 4, text: "Entre 1 jour et 1 semaine", weight: 6 },
+      { value: 5, text: "Moins d'1 jour", weight: 7 },
+      { value: 6, text: "Moins d'1 heure", weight: 9 },
+    ],
+  },
+  {
+    id: "deployment_frequency",
+    category: "performance",
+    question: "À quelle fréquence votre organisation déploie-t-elle du code en production ou le met-elle à la disposition des utilisateurs finaux ?",
+    answers: [
+      { value: 1, text: "Moins d'une fois tous les six mois", weight: 1 },
+      { value: 2, text: "Entre une fois par mois et une fois tous les six mois", weight: 2 },
+      { value: 3, text: "Entre une fois par semaine et une fois par mois", weight: 4 },
+      { value: 4, text: "Entre une fois par jour et une fois par semaine", weight: 6 },
+      { value: 5, text: "Entre une fois par heure et une fois par jour", weight: 7 },
+      { value: 6, text: "À la demande (plusieurs déploiements par jour)", weight: 9 },
+    ],
+  },
+  {
+    id: "recovery_time",
+    category: "stability",
+    question: "Combien de temps faut-il généralement pour restaurer le service après un changement en production ou une mise à jour qui dégrade le service (par exemple, entraîne une dégradation du service ou une interruption de service) et nécessite ensuite une remédiation (par exemple, nécessite un correctif, un rollback, une correction vers l'avant ou un patch) ?",
+    answers: [
+      { value: 1, text: "Plus de 6 mois", weight: 1 },
+      { value: 2, text: "Entre 1 mois et 6 mois", weight: 2 },
+      { value: 3, text: "Entre 1 semaine et 1 mois", weight: 3 },
+      { value: 4, text: "Entre 1 jour et 1 semaine", weight: 5 },
+      { value: 5, text: "Moins d'1 jour", weight: 7 },
+      { value: 6, text: "Moins d'1 heure", weight: 9 },
+    ],
+  },
+  {
+    id: "change_failure_rate",
+    category: "stability",
+    question: "Approximativement, quel pourcentage de changements en production ou de mises à jour pour les utilisateurs entraîne une dégradation du service (par exemple, entraîne une dégradation du service ou une interruption de service) et nécessite ensuite une remédiation (par exemple, nécessite un correctif, un rollback, une correction vers l'avant ou un patch) ?",
+    answers: [
+      { value: 1, text: ">64%", weight: 1 },
+      { value: 2, text: "32%-64%", weight: 2 },
+      { value: 3, text: "16%-32%", weight: 4 },
+      { value: 4, text: "8%-16%", weight: 6 },
+      { value: 5, text: "4%-8%", weight: 7 },
+      { value: 6, text: "0%-2%", weight: 9 },
+    ],
+  },
+  {
+    id: "rework_rate",
+    category: "quality",
+    question: "Approximativement, quel pourcentage de déploiements au cours des six derniers mois n'étaient pas planifiés mais ont été effectués pour corriger un bug orienté utilisateur dans l'application ?",
+    answers: [
+      { value: 1, text: ">64%", weight: 1 },
+      { value: 2, text: "32%-64%", weight: 2 },
+      { value: 3, text: "16%-32%", weight: 4 },
+      { value: 4, text: "8%-16%", weight: 6 },
+      { value: 5, text: "4%-8%", weight: 7 },
+      { value: 6, text: "0%-2%", weight: 9 },
+    ],
+  },
+  {
+    id: "burnout",
+    category: "wellbeing",
+    question: "Niveau de burnout dans l'équipe ?",
+    answers: [
+      { value: 1, text: "Extrêmement élevé", weight: 1 },
+      { value: 2, text: "Très élevé", weight: 2 },
+      { value: 3, text: "Élevé", weight: 4 },
+      { value: 4, text: "Modéré", weight: 6 },
+      { value: 5, text: "Faible", weight: 8 },
+      { value: 6, text: "Très faible", weight: 9 },
+    ],
+  },
+  {
+    id: "friction",
+    category: "wellbeing",
+    question: "Niveau de friction / obstacles dans le travail ?",
+    answers: [
+      { value: 1, text: "Très élevé - bloqué constamment", weight: 1 },
+      { value: 2, text: "Élevé - obstacles fréquents", weight: 2 },
+      { value: 3, text: "Modéré - obstacles réguliers", weight: 4 },
+      { value: 4, text: "Faible - obstacles occasionnels", weight: 6 },
+      { value: 5, text: "Très faible - peu d'obstacles", weight: 8 },
+      { value: 6, text: "Minimal - workflow fluide", weight: 9 },
+    ],
+  },
+  {
+    id: "valuable_work",
+    category: "quality",
+    question: "% du temps consacré à du travail utile vs réactif ?",
+    answers: [
+      { value: 1, text: "< 10% utile", weight: 1 },
+      { value: 2, text: "10%-25% utile", weight: 2 },
+      { value: 3, text: "25%-50% utile", weight: 4 },
+      { value: 4, text: "50%-75% utile", weight: 6 },
+      { value: 5, text: "75%-90% utile", weight: 8 },
+      { value: 6, text: "> 90% utile", weight: 9 },
+    ],
+  },
+];
+
+export type DiagnosticAnswers = Record<string, number>;
