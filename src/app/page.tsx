@@ -64,12 +64,14 @@ export default function Home() {
               {t('results.title')}
             </h1>
             <div className="flex items-center gap-4">
-              <button
-                onClick={() => changeLocale(locale === 'fr' ? 'en' : 'fr')}
-                className="text-xs font-semibold text-blue-600 hover:text-blue-700 uppercase"
+              <select
+                value={locale}
+                onChange={(e) => changeLocale(e.target.value as 'fr' | 'en')}
+                className="text-sm font-semibold text-slate-700 bg-white border border-slate-300 rounded-lg px-3 py-2 hover:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent cursor-pointer"
               >
-                {locale === 'fr' ? '🇬🇧 EN' : '🇫🇷 FR'}
-              </button>
+                <option value="fr">🇫🇷 Français</option>
+                <option value="en">🇬🇧 English</option>
+              </select>
               <button
                 onClick={handleReset}
                 className="btn-secondary text-sm"
@@ -284,12 +286,14 @@ export default function Home() {
           <div className="flex justify-between items-center mb-2">
             <span className="text-sm font-semibold text-slate-700">{t('common.progression')}</span>
             <div className="flex items-center gap-4">
-              <button
-                onClick={() => changeLocale(locale === 'fr' ? 'en' : 'fr')}
-                className="text-xs font-semibold text-blue-600 hover:text-blue-700 uppercase"
+              <select
+                value={locale}
+                onChange={(e) => changeLocale(e.target.value as 'fr' | 'en')}
+                className="text-xs font-semibold text-slate-700 bg-white border border-slate-300 rounded px-2 py-1 hover:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent cursor-pointer"
               >
-                {locale === 'fr' ? '🇬🇧 EN' : '🇫🇷 FR'}
-              </button>
+                <option value="fr">🇫🇷 FR</option>
+                <option value="en">🇬🇧 EN</option>
+              </select>
               <span className="text-sm font-semibold text-blue-600">
                 {answeredCount}/{totalQuestions} • {remainingQuestions} {t('common.remaining')}{remainingQuestions !== 1 && locale === 'fr' ? 's' : ''}
               </span>
