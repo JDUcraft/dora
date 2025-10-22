@@ -135,66 +135,66 @@
   "recommendations": {
     "1": {
       "title": "Priorités urgentes",
-      "items": [
-        "Stabiliser les systèmes (infrastructure critique)",
-        "Réduire la charge réactive immédiatement",
-        "Mettre en place du support et des ressources",
-        "Initier une amélioration continue progressive"
-      ]
+      "items": {
+        "0": "Stabiliser les systèmes (infrastructure critique)",
+        "1": "Réduire la charge réactive immédiatement",
+        "2": "Mettre en place du support et des ressources",
+        "3": "Initier une amélioration continue progressive"
+      }
     },
     "2": {
       "title": "Plan de modernisation",
-      "items": [
-        "Réduire la dépendance aux systèmes hérités",
-        "Automatiser les processus répétitifs",
-        "Implémenter une stratégie d'extraction progressive",
-        "Former l'équipe aux nouvelles technologies"
-      ]
+      "items": {
+        "0": "Réduire la dépendance aux systèmes hérités",
+        "1": "Automatiser les processus répétitifs",
+        "2": "Implémenter une stratégie d'extraction progressive",
+        "3": "Former l'équipe aux nouvelles technologies"
+      }
     },
     "3": {
       "title": "Optimisation des processus",
-      "items": [
-        "Analyser et simplifier les workflows",
-        "Réduire les approbations non-critiques",
-        "Automatiser les tâches manuelles",
-        "Mettre en place l'observabilité"
-      ]
+      "items": {
+        "0": "Analyser et simplifier les workflows",
+        "1": "Réduire les approbations non-critiques",
+        "2": "Automatiser les tâches manuelles",
+        "3": "Mettre en place l'observabilité"
+      }
     },
     "4": {
       "title": "Augmenter la cadence",
-      "items": [
-        "Accélérer le lead time des déploiements",
-        "Améliorer la stabilité opérationnelle",
-        "Mettre en place le continuous deployment",
-        "Réduire la variabilité des changements"
-      ]
+      "items": {
+        "0": "Accélérer le lead time des déploiements",
+        "1": "Améliorer la stabilité opérationnelle",
+        "2": "Mettre en place le continuous deployment",
+        "3": "Réduire la variabilité des changements"
+      }
     },
     "5": {
       "title": "Accélérer sans compromettre",
-      "items": [
-        "Augmenter la fréquence de déploiement graduellement",
-        "Investir dans l'automatisation",
-        "Renforcer le feedback client",
-        "Partager les bonnes pratiques"
-      ]
+      "items": {
+        "0": "Augmenter la fréquence de déploiement graduellement",
+        "1": "Investir dans l'automatisation",
+        "2": "Renforcer le feedback client",
+        "3": "Partager les bonnes pratiques"
+      }
     },
     "6": {
       "title": "Consolider et partager",
-      "items": [
-        "Documenter et partager les meilleures pratiques",
-        "Former d'autres équipes",
-        "Chercher des micro-améliorations",
-        "Maintenir le momentum"
-      ]
+      "items": {
+        "0": "Documenter et partager les meilleures pratiques",
+        "1": "Former d'autres équipes",
+        "2": "Chercher des micro-améliorations",
+        "3": "Maintenir le momentum"
+      }
     },
     "7": {
       "title": "Excellence continue",
-      "items": [
-        "Maintenir la culture de qualité",
-        "Partager l'expertise avec l'organisation",
-        "Explorer les innovations futures",
-        "Mesurer continuellement"
-      ]
+      "items": {
+        "0": "Maintenir la culture de qualité",
+        "1": "Partager l'expertise avec l'organisation",
+        "2": "Explorer les innovations futures",
+        "3": "Mesurer continuellement"
+      }
     }
   },
   "clusters": {

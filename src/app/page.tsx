@@ -178,11 +178,12 @@ export default function Home() {
                       7: { from: 'from-emerald-50', to: 'to-emerald-100', border: 'border-emerald-500', title: 'text-emerald-900', text: 'text-emerald-800' },
                     };
                     const colors = colorMap[result.cluster.id];
+                    const items = [0, 1, 2, 3].map(i => t(`recommendations.${result.cluster.id}.items.${i}`));
                     return (
                       <div className={`bg-gradient-to-r ${colors.from} ${colors.to} border-l-4 ${colors.border} p-5 rounded-lg`}>
                         <h4 className={`font-semibold ${colors.title} text-sm mb-2`}>{t(`recommendations.${result.cluster.id}.title`)}</h4>
                         <ul className={`mt-2 ${colors.text} space-y-2 text-sm`}>
-                          {(t(`recommendations.${result.cluster.id}.items`) as unknown as string[]).map((item, idx) => (
+                          {items.map((item, idx) => (
                             <li key={idx}>• {item}</li>
                           ))}
                         </ul>

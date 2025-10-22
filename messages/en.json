@@ -135,66 +135,66 @@
   "recommendations": {
     "1": {
       "title": "Urgent priorities",
-      "items": [
-        "Stabilize systems (critical infrastructure)",
-        "Reduce reactive workload immediately",
-        "Implement support and resources",
-        "Initiate progressive continuous improvement"
-      ]
+      "items": {
+        "0": "Stabilize systems (critical infrastructure)",
+        "1": "Reduce reactive workload immediately",
+        "2": "Implement support and resources",
+        "3": "Initiate progressive continuous improvement"
+      }
     },
     "2": {
       "title": "Modernization plan",
-      "items": [
-        "Reduce dependency on legacy systems",
-        "Automate repetitive processes",
-        "Implement progressive extraction strategy",
-        "Train team on new technologies"
-      ]
+      "items": {
+        "0": "Reduce dependency on legacy systems",
+        "1": "Automate repetitive processes",
+        "2": "Implement progressive extraction strategy",
+        "3": "Train team on new technologies"
+      }
     },
     "3": {
       "title": "Process optimization",
-      "items": [
-        "Analyze and simplify workflows",
-        "Reduce non-critical approvals",
-        "Automate manual tasks",
-        "Implement observability"
-      ]
+      "items": {
+        "0": "Analyze and simplify workflows",
+        "1": "Reduce non-critical approvals",
+        "2": "Automate manual tasks",
+        "3": "Implement observability"
+      }
     },
     "4": {
       "title": "Increase cadence",
-      "items": [
-        "Accelerate deployment lead time",
-        "Improve operational stability",
-        "Implement continuous deployment",
-        "Reduce change variability"
-      ]
+      "items": {
+        "0": "Accelerate deployment lead time",
+        "1": "Improve operational stability",
+        "2": "Implement continuous deployment",
+        "3": "Reduce change variability"
+      }
     },
     "5": {
       "title": "Accelerate without compromise",
-      "items": [
-        "Gradually increase deployment frequency",
-        "Invest in automation",
-        "Strengthen customer feedback",
-        "Share best practices"
-      ]
+      "items": {
+        "0": "Gradually increase deployment frequency",
+        "1": "Invest in automation",
+        "2": "Strengthen customer feedback",
+        "3": "Share best practices"
+      }
     },
     "6": {
       "title": "Consolidate and share",
-      "items": [
-        "Document and share best practices",
-        "Train other teams",
-        "Seek micro-improvements",
-        "Maintain momentum"
-      ]
+      "items": {
+        "0": "Document and share best practices",
+        "1": "Train other teams",
+        "2": "Seek micro-improvements",
+        "3": "Maintain momentum"
+      }
     },
     "7": {
       "title": "Continuous excellence",
-      "items": [
-        "Maintain quality culture",
-        "Share expertise with organization",
-        "Explore future innovations",
-        "Measure continuously"
-      ]
+      "items": {
+        "0": "Maintain quality culture",
+        "1": "Share expertise with organization",
+        "2": "Explore future innovations",
+        "3": "Measure continuously"
+      }
     }
   },
   "clusters": {
