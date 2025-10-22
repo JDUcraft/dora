@@ -1,19 +1,24 @@
+'use client';
+
 import { Cluster } from "@/data/clusters";
+import { useTranslation } from "@/hooks/useTranslation";
 
 interface RadarChartProps {
   cluster: Cluster;
 }
 
 export function RadarChart({ cluster }: RadarChartProps) {
-  const labelMap: Record<string, string[]> = {
-    teamPerformance: ["Team", "performance"],
-    productPerformance: ["Product", "performance"],
-    softwareDeliveryThroughput: ["Software delivery", "throughput"],
-    softwareDeliveryInstability: ["Software delivery", "instability"],
-    valuableWork: ["Valuable", "work"],
-    friction: ["Friction", ""],
-    burnout: ["Burnout", ""],
-    individualEffectiveness: ["Individual", "effectiveness"],
+  const { t } = useTranslation();
+  
+  const labelMap: Record<string, string> = {
+    teamPerformance: t('radar.teamPerformance'),
+    productPerformance: t('radar.productPerformance'),
+    softwareDeliveryThroughput: t('radar.softwareDeliveryThroughput'),
+    softwareDeliveryInstability: t('radar.softwareDeliveryInstability'),
+    valuableWork: t('radar.valuableWork'),
+    friction: t('radar.friction'),
+    burnout: t('radar.burnout'),
+    individualEffectiveness: t('radar.individualEffectiveness'),
   };
 
   const dimensions = Object.entries(cluster.scores);
@@ -40,8 +45,8 @@ export function RadarChart({ cluster }: RadarChartProps) {
     .join(" ");
 
   return (
-    <div className="flex justify-center p-6 bg-slate-50 rounded-lg border border-slate-200">
-      <svg width="450" height="450" viewBox="0 0 450 450">
+    <div className="flex justify-center p-6 bg-slate-50 rounded-lg border border-slate-200 w-full overflow-hidden">
+      <svg width="100%" height="auto" viewBox="0 0 450 450" className="max-w-full" preserveAspectRatio="xMidYMid meet">
         {gridCircles.map((circle) => (
           <circle
             key={`grid-${circle}`}
@@ -85,7 +90,8 @@ export function RadarChart({ cluster }: RadarChartProps) {
           const angle = angleSlice * i - Math.PI / 2;
           const x = center.x + (radius + 50) * Math.cos(angle);
           const y = center.y + (radius + 50) * Math.sin(angle);
-          const labels = labelMap[key as keyof typeof labelMap];
+          const label = labelMap[key as keyof typeof labelMap];
+          const lines = label.split('\n');
 
           return (
             <text
@@ -97,8 +103,11 @@ export function RadarChart({ cluster }: RadarChartProps) {
               fontWeight="500"
               fill="#475569"
             >
-              <tspan x={x} dy="-0.4em">{labels[0]}</tspan>
-              {labels[1] && <tspan x={x} dy="1.2em">{labels[1]}</tspan>}
+              {lines.map((line, idx) => (
+                <tspan key={idx} x={x} dy={idx === 0 ? "-0.4em" : "1.2em"}>
+                  {line}
+                </tspan>
+              ))}
             </text>
           );
         })}

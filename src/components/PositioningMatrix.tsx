@@ -33,7 +33,6 @@ export function PositioningMatrix() {
       <div className="w-full">
         <svg 
           width="100%" 
-          height="auto"
           viewBox={`0 0 ${width} ${height}`}
           className="border border-slate-200 rounded bg-white"
           preserveAspectRatio="xMidYMid meet"
